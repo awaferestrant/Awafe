@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مطعم عوافي | تواصل معنا</title>
+  <meta name="description" content="اكتشف مطعم جات - تابعنا على وسائل التواصل وزر موقعنا" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+    
+    :root {
+      --primary: #ff6b35;
+      --primary-dark: #e64d1f;
+      --secondary: #f7931e;
+      --accent: #ffd23f;
+      --dark: #1a1a2e;
+      --card-bg: #16213e;
+      --text: #eaeaea;
+      --text-muted: #a0a0a0;
+      --success: #06ffa5;
+      --gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
+      --shadow: 0 20px 60px rgba(0,0,0,0.4);
+      --glow: 0 0 30px rgba(255,107,53,0.3);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Tajawal', -apple-system, system-ui, sans-serif;
+      background: #0f0f1e;
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    /* خلفية متحركة */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .bg-animation::before,
+    .bg-animation::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      animation: float 20s infinite ease-in-out;
+    }
+    
+    .bg-animation::before {
+      background: var(--primary);
+      top: -200px;
+      right: -100px;
+      animation-delay: 0s;
+    }
+    
+    .bg-animation::after {
+      background: var(--secondary);
+      bottom: -200px;
+      left: -100px;
+      animation-delay: 10s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(50px, 50px) scale(1.1); }
+      50% { transform: translate(0, 100px) scale(0.9); }
+      75% { transform: translate(-50px, 50px) scale(1.05); }
+    }
+    
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(26, 26, 46, 0.8);
+      border-bottom: 1px solid rgba(255,107,53,0.2);
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: slideInRight 0.8s ease-out;
+    }
+    
+    .logo {
+      width: 55px;
+      height: 55px;
+      background: var(--gradient);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.8rem;
+      box-shadow: var(--glow);
+      animation: pulse 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      to { transform: translateX(100%); }
+    }
+    
+    .brand-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .menu-btn {
+      background: var(--gradient);
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.3s;
+      box-shadow: var(--shadow);
+      animation: slideInLeft 0.8s ease-out;
+    }
+    
+    .menu-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 25px 70px rgba(255,107,53,0.5);
+    }
+    
+    .menu-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .hero-content {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-name {
+      display: block;
+      font-size: 4.5rem;
+      text-shadow: 0 0 50px rgba(255,107,53,0.5);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    
+    .hero-image {
+      position: relative;
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+    
+    .restaurant-card {
+      background: linear-gradient(145deg, var(--card-bg), var(--dark));
+      border-radius: 25px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,107,53,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .restaurant-card::before {
+      content: '🍽️';
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.05;
+      top: -50px;
+      left: -50px;
+      transform: rotate(-15deg);
+    }
+    
+    .contact-info {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding: 1rem;
+      background: rgba(255,107,53,0.1);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    
+    .contact-item:hover {
+      background: rgba(255,107,53,0.2);
+      transform: translateX(-5px);
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .contact-item a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+    
+    /* Social Section */
+    .social-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+    
+    .social-card {
+      background: linear-gradient(145deg, var(--card-bg), var(--dark));
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,107,53,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    
+    .social-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--glow), 0 20px 50px rgba(0,0,0,0.5);
+      border-color: var(--primary);
+    }
+    
+    .social-card:hover::before {
+      opacity: 0.1;
+    }
+    
+    .social-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .social-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--glow);
+      transition: transform 0.4s;
+    }
+    
+    .social-card:hover .social-icon {
+      transform: rotate(360deg) scale(1.1);
+    }
+    
+    .social-icon svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+    
+    .social-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+    }
+    
+    .social-handle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    /* Menu Section */
+    .menu-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+    
+    .menu-container {
+      display: grid;
+      gap: 2.5rem;
+    }
+    
+    .menu-category {
+      background: linear-gradient(145deg, var(--card-bg), var(--dark));
+      border-radius: 25px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,107,53,0.2);
+      transition: all 0.4s;
+    }
+    
+    .menu-category:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--glow), 0 25px 60px rgba(0,0,0,0.5);
+    }
+    
+    .category-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(255,107,53,0.3);
+    }
+    
+    .category-header h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .menu-items {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem;
+      background: rgba(255,107,53,0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255,107,53,0.1);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient);
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+    
+    .menu-item:hover {
+      background: rgba(255,107,53,0.12);
+      border-color: var(--primary);
+      transform: translateX(-5px);
+    }
+    
+    .menu-item:hover::before {
+      transform: scaleY(1);
+    }
+    
+    .item-info {
+      flex: 1;
+    }
+    
+    .item-info h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    
+    .item-info p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    
+    .item-price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255,107,53,0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(255,107,53,0.3);
+    }
+    
+    /* Map Section */
+    .map-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      animation: fadeInUp 1s ease-out 0.5s backwards;
+    }
+    
+    .map-container {
+      background: linear-gradient(145deg, var(--card-bg), var(--dark));
+      border-radius: 25px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,107,53,0.2);
+    }
+    
+    .map-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 500px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    
+    .map-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      border: 2px solid rgba(255,107,53,0.3);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(0.2) contrast(1.1);
+    }
+    
+    .map-note {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      background: rgba(255,107,53,0.1);
+      border-radius: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      border: 1px dashed rgba(255,107,53,0.3);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,107,53,0.2);
+      margin-top: 4rem;
+    }
+    
+    /* Drawer */
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    
+    .drawer.active {
+      pointer-events: all;
+    }
+    
+    .drawer-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .drawer.active .drawer-backdrop {
+      opacity: 1;
+    }
+    
+    .drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--dark), var(--card-bg));
+      box-shadow: -10px 0 50px rgba(0,0,0,0.5);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow-y: auto;
+    }
+    
+    .drawer.active .drawer-panel {
+      transform: translateX(0);
+    }
+    
+    .drawer-header {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,107,53,0.2);
+    }
+    
+    .drawer-header h2 {
+      font-size: 1.8rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .close-btn {
+      background: rgba(255,107,53,0.2);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .close-btn:hover {
+      background: var(--primary);
+      transform: rotate(90deg);
+    }
+    
+    .drawer-menu {
+      padding: 1rem;
+    }
+    
+    .drawer-menu a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      margin: 0.5rem 0;
+      background: rgba(255,107,53,0.1);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+    
+    .drawer-menu a:hover {
+      background: rgba(255,107,53,0.2);
+      border-color: var(--primary);
+      transform: translateX(-5px);
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(255,107,53,0.4);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(255,107,53,0.6);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-name {
+        font-size: 3.5rem;
+      }
+      
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      
+      .brand-name {
+        font-size: 1.4rem;
+      }
+      
+      .logo {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+      }
+      
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .item-price {
+        align-self: flex-end;
+      }
+      
+      .category-header h3 {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  
+  <header>
+    <nav>
+      <div class="logo-container">
+        <div class="logo">ع</div>
+        <div class="brand-name">مطعم عوافي</div>
+      </div>
+      <button class="menu-btn" id="menuBtn">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        القائمة
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">مرحبًا بك في <span class="hero-name">مطعم عوافي</span></h1>
+      <p class="hero-subtitle">نقدم لك أشهى المأكولات مع تجربة طعام لا تُنسى. تابعنا على وسائل التواصل واكتشف عالمنا.</p>
+    </div>
+<!--     <div class="hero-image">
+      <div class="restaurant-card">
+        <div class="contact-info">
+          <h3>تواصل معنا</h3>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div><strong>البريد الإلكتروني</strong><br><a href="mailto:you@example.com">you@example.com</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5z"/></svg>
+            </div>
+            <div><strong>الموقع</strong><br>الكوت، واسط، العراق</div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-section" id="accounts">
+    <h2 class="section-title">تابعنا على وسائل التواصل</h2>
+    <div class="social-grid">
+
+
+
+
+
+
+<a class="social-card" href="https://www.facebook.com/share/1CdQucuQpJ/" target="_blank" rel="noopener">
+        <div class="social-content">
+          <div class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </div>
+          <div class="social-info">
+            <h3>Facebook</h3>
+            <div class="social-handle">ماكولات عوافي</div>
+          </div>
+        </div>
+      </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <a class="social-card" href="https://www.instagram.com/m.awoafe/" target="_blank" rel="noopener">
+        <div class="social-content">
+          <div class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 1 0 12 7.5Z"/></svg>
+          </div>
+          <div class="social-info"><h3>Instagram</h3><div class="social-handle">ماكولات عوافي</div></div>
+        </div>
+      </a>
+
+
+
+
+
+
+
+
+      <a class="social-card" href="https://www.tiktok.com/@m.awofe?_t=ZS-90qeuFpMMrv&_r=1" target="_blank" rel="noopener">
+        <div class="social-content">
+          <div class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2c.6 2.8 2.6 4.7 5 5v3.2c-1.9 0-3.6-.6-5-1.6v6.9c0 3.9-3.2 7-7.2 6.5C5 21.6 3 18.7 3.5 15.7 4 12.8 6.6 10.7 9.5 11.2V14c-1.3-.4-2.7.3-3.1 1.6-.4 1.3.3 2.7 1.6 3.1 1.3.4 2.7-.3 3.1-1.6.1-.2.1-.4.1-.7V2.5H16Z"/></svg>
+          </div>
+          <div class="social-info"><h3>TikTok</h3><div class="social-handle">ماكولات عوافي</div></div>
+        </div>
+      </a>
+
+
+
+
+
+
+
+    </div>
+  </section>
+
+  <!-- القائمة المحدثة بدون تكرار وبدون اختصارات -->
+  <section class="menu-section" id="menu">
+    <h2 class="section-title">قائمة الطعام</h2>
+    <div class="menu-container">
+      <!-- البيتزا -->
+      <div class="menu-category">
+        <div class="category-header"><h3>🍕 البيتزا</h3></div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>بيتزا بالدجاج</h4>
+              <p>بيتزا بالدجاج المتبل مع صلصة الطماطم والجبن الموزاريلا.</p>
+            </div>
+            <div class="item-price">٤٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>بيتزا باللحم</h4>
+              <p>بيتزا باللحم المفروم المتبل مع صلصة الطماطم والجبن الموزاريلا.</p>
+            </div>
+            <div class="item-price">٤٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>بيتزا بالببروني</h4>
+              <p>بيتزا بشرائح الببروني مع صلصة الطماطم والجبن الموزاريلا.</p>
+            </div>
+            <div class="item-price">٤٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>بيتزا بالخضار</h4>
+              <p>بيتزا بالخضار المشكلة: فلفل أخضر وزيتون وفطر وذرة مع الجبن.</p>
+            </div>
+            <div class="item-price">٣٠٠٠ د.ع</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- الساندويشات والبرغر -->
+      <div class="menu-category">
+        <div class="category-header"><h3>🥪 الساندويشات والبرغر</h3></div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>برغر لحم</h4>
+              <p>سندويش برغر لحم بقري مشوي مع خبز طازج وخس وصلصة خاصة.</p>
+            </div>
+            <div class="item-price">١٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>برغر دجاج</h4>
+              <p>سندويش برغر دجاج مقرمش أو مشوي مع مايونيز وخس.</p>
+            </div>
+            <div class="item-price">١٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>ساندويش شاورما دجاج</h4>
+              <p>ساندويش شاورما دجاج مع صلصة الثوم وخيار مخلل.</p>
+            </div>
+            <div class="item-price">١٥٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>ساندويش خبز الصاج</h4>
+              <p>ساندويش محشو حسب الاختيار داخل خبز الصاج المشوي.</p>
+            </div>
+            <div class="item-price">٢٠٠٠ د.ع</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- الوجبات السريعة -->
+      <div class="menu-category">
+        <div class="category-header"><h3>🍚 الوجبات السريعة</h3></div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>ريزو دجاج</h4>
+              <p>أرز متبل مع قطع دجاج وصوص خاص.</p>
+            </div>
+            <div class="item-price">٣٠٠٠ د.ع</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- المعجنات -->
+      <div class="menu-category">
+        <div class="category-header"><h3>🥖 المعجنات</h3></div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>لحم بعجين</h4>
+              <p>عجينة رقيقة مدهونة بلحم بقري متبل مع بصل وبندورة وتوابل.</p>
+            </div>
+            <div class="item-price">٢٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>لحم بعجين بالجبن</h4>
+              <p>لحم بعجين مع إضافة الجبن للمذاق الغني.</p>
+            </div>
+            <div class="item-price">٢٥٠٠ د.ع</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- المقبلات -->
+      <div class="menu-category">
+        <div class="category-header"><h3>🥗 المقبلات</h3></div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>مقبلات مشكلة حجم صغير</h4>
+              <p>تشكيلة مختارة من المقبلات بحجم صغير.</p>
+            </div>
+            <div class="item-price">١٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>مقبلات مشكلة حجم متوسط</h4>
+              <p>تشكيلة مختارة من المقبلات بحجم متوسط.</p>
+            </div>
+            <div class="item-price">٢٠٠٠ د.ع</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-info">
+              <h4>مقبلات مشكلة حجم كبير</h4>
+              <p>تشكيلة مختارة من المقبلات بحجم كبير.</p>
+            </div>
+            <div class="item-price">٣٠٠٠ د.ع</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الخريطة -->
+  <section class="map-section" id="map">
+    <h2 class="section-title">موقع المطعم</h2>
+    <div class="map-container">
+      <div class="map-wrapper">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://www.google.com/maps?q=32.5253998,45.8134047&hl=ar&z=17&output=embed"></iframe>
+      </div>
+      <div class="map-note">📍
+        
+<a href="https://www.google.com/maps/dir/?api=1&destination=32.5253998,45.8134047"
+   target="_blank"
+   rel="noopener"
+   style="color: white; text-decoration: none;">
+  افتح الاتجاهات على خرائط Google
+</a>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> مطعم جات - جميع الحقوق محفوظة</p>
+    <p style="margin-top:.5rem;opacity:.7;">صُنع في العراق</p>
+  </footer>
+
+  <div class="drawer" id="drawer">
+    <div class="drawer-backdrop"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h2>القائمة</h2>
+        <button class="close-btn" id="closeBtn">×</button>
+      </div>
+      <div class="drawer-menu">
+        <a href="#menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+          قائمة الطعام
+        </a>
+        <a href="#accounts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          الحسابات الاجتماعية
+        </a>
+        <a href="#map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          موقع المطعم
+        </a>
+        <!-- <a href="mailto:you@example.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          تواصل معنا
+        </a> -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn=document.getElementById('menuBtn'),closeBtn=document.getElementById('closeBtn'),drawer=document.getElementById('drawer'),backdrop=drawer.querySelector('.drawer-backdrop');
+    function openDrawer(){drawer.classList.add('active');document.body.style.overflow='hidden'}
+    function closeDrawer(){drawer.classList.remove('active');document.body.style.overflow=''}
+    menuBtn.addEventListener('click',openDrawer);closeBtn.addEventListener('click',closeDrawer);backdrop.addEventListener('click',closeDrawer);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('active'))closeDrawer()});
+    drawer.querySelectorAll('.drawer-menu a').forEach(l=>l.addEventListener('click',()=>setTimeout(closeDrawer,300)));
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
+  </script>
+</body>
+</html>
